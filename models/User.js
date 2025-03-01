@@ -101,7 +101,8 @@ const userSchema = new mongoose.Schema({
   likesCount: {
     type: Number,
     default: 0
-  }
+  },
+  
 });
 
 // Hash password before saving

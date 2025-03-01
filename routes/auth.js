@@ -6,6 +6,7 @@ const authMiddleware = require('../middleware/auth');
 const multer = require('multer');
 const cloudinary = require('../config/cloudinary');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const axios = require('axios');
 
 // Configure Cloudinary storage
 const storage = new CloudinaryStorage({
@@ -43,7 +44,7 @@ router.post('/register', upload.fields([
       about
     } = req.body;
 
-    // Check if user already exists
+     // Check if user already exists
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({ message: 'Email already registered' });
@@ -186,7 +187,6 @@ router.put('/profile', authMiddleware, async (req, res) => {
     const {
       firstName,
       lastName,
-      phone,
       location,
       bio
     } = req.body;
@@ -201,7 +201,6 @@ router.put('/profile', authMiddleware, async (req, res) => {
       ...user.profile,
       ...(firstName && { firstName }),
       ...(lastName && { lastName }),
-      ...(phone && { phone }),
       ...(location && { location }),
       ...(bio && { bio })
     };
@@ -223,4 +222,5 @@ router.put('/profile', authMiddleware, async (req, res) => {
   }
 });
 
-module.exports = router; 
+
+module.exports = router;
