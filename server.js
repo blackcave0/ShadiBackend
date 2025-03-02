@@ -25,6 +25,11 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/profile', require('./routes/profile'));
 app.use('/api/matches', require('./routes/matches'));
 
+// check server is running 
+app.get('/hello-daksh', (req, res) => {
+  res.send('Server is running');
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
