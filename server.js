@@ -11,8 +11,7 @@ connectDB();
 // CORS configuration
 app.use(
   cors({
-    origin:
-      "https://matrimonial-server-hhoj9dzcv-sarvesh-s-projects-66e932e0.vercel.app",
+    origin: "https://truematrimonial.pages.dev",
     credentials: true,
   })
 );
@@ -53,4 +52,4 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-}); 
+});
