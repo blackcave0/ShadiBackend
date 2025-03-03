@@ -9,10 +9,13 @@ const app = express();
 connectDB();
 
 // CORS configuration
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
-}));
+app.use(
+  cors({
+    origin:
+      "https://matrimonial-server-hhoj9dzcv-sarvesh-s-projects-66e932e0.vercel.app",
+    credentials: true,
+  })
+);
 
 // Middleware
 app.use(express.json());
